@@ -22,7 +22,7 @@ class MdataSerializer(serializers.ModelSerializer):
         # Categoria_di_servizi_o_fornitura = serializers.CharField(source="")
         model = M_Datas
         fields = (
-            "id_gara","website","cig","Aescrizione_Appalto","Tipologia_di_Appalto",
+            "id_gara","website","cig","Descrizione_Appalto","Tipologia_di_Appalto",
             "ammount","Criterio_di_aggiudizazione","Scadenza_ricezione_Offerte","Data_e_ora_apertura_offerte",
             "rup","Location","Attachment_file","Other_attachment_file","Nome_Stazione_Appaltante",
             "Categoria_di_servizi_o_fornitura","Categoria_di_Lavori"
