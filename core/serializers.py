@@ -1,5 +1,8 @@
+
+from django.db import models
+from django.db.models import fields
 from rest_framework import serializers
-from .models import Data
+from .models import Data, M_Datas, Stazioni_Appaltanti
 
 
 class DataSerializer(serializers.ModelSerializer):
@@ -13,3 +16,20 @@ class DataSerializer(serializers.ModelSerializer):
             'cig', 'cup', 'modalita_realizzazione', 'cpv', 'codice_fiscale_stazione_appaltante', 'imp_lotto', 'id_gara', '_id', 'importo_gara', 'ufficio',
             'Bandi_di_Gara','documentazione_aggiuntiva','id'
         )
+
+class MdataSerializer(serializers.ModelSerializer):
+    class Meta:
+        # Categoria_di_servizi_o_fornitura = serializers.CharField(source="")
+        model = M_Datas
+        fields = (
+            "id_gara","website","cig","Aescrizione_Appalto","Tipologia_di_Appalto",
+            "ammount","Criterio_di_aggiudizazione","Scadenza_ricezione_Offerte","Data_e_ora_apertura_offerte",
+            "rup","Location","Attachment_file","Other_attachment_file","Nome_Stazione_Appaltante",
+            "Categoria_di_servizi_o_fornitura","Categoria_di_Lavori"
+        )
+        depth = 1
+
+class StazioniSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Stazioni_Appaltanti
+        fields = '__all__'
